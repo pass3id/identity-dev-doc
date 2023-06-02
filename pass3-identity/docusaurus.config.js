@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'PASS3 Identity',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'Putting users back in control of their own digital identities.',
   favicon: 'img/favicon.ico',
   markdown: {
     mermaid: true,
