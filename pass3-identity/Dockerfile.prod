@@ -1,9 +1,9 @@
 FROM node:lts AS build
 WORKDIR /usr/src/app
 COPY ./pass3-identity/package*.json ./
-RUN npm install
+RUN yarn
 COPY ./pass3-identity/. .
-RUN npm run build
+RUN yarn build
 
 # Deployment step
 

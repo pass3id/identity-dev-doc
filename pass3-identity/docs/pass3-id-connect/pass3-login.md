@@ -36,7 +36,7 @@ The easiest way to connect to your website with a button.
 
 Put this snippet code on your login site.
 
-```
+```html
 <style>
 .pass3-login-button {
   font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";

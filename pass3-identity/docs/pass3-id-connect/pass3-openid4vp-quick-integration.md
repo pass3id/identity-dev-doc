@@ -57,7 +57,7 @@ You can find the full example [here](https://github.com/pass3id/identity-sdk/tre
 
 Install Identity-SDK package
 
-```
+```shell
 go get github.com/pass3id/identity-sdk/oi4vp
 ```
 
@@ -65,7 +65,7 @@ go get github.com/pass3id/identity-sdk/oi4vp
 
 The configuration of the OAuth2 client requires the `client_id` and `client_secret`, which can be obtained from PASS3.
 
-```
+```go
 var (
 	clientID     = os.Getenv("PASS3_OAUTH2_CLIENT_ID")
 	clientSecret = os.Getenv("PASS3_OAUTH2_CLIENT_SECRET")
@@ -82,7 +82,7 @@ There are two ways to initiate a provider.
 
 ### 1. Auto Lookup Config from OpenID Connect Discovery
 
-```
+```go
 ctx := context.Background()
 
 provider, err := oi4vp.NewProvider(ctx, "https://pass3.id")
@@ -109,7 +109,7 @@ There are 2 verifier type:
 
 Example:
 
-```
+```go
 verifier := oi4vp.NewVPVerifier(&oi4vp.Config{
     SkipClientIDCheck: true,
     SkipExpiryCheck:   true,
@@ -139,7 +139,7 @@ fmt.Println(claims.VC["credentialSubject"])
 
 Available credential type from PASS3 available in `/oi4vp/credentials.go`.
 
-```
+```go
 oauth2Config := oauth2.Config{
     ClientID:     clientID,
     ClientSecret: clientSecret,
@@ -161,7 +161,7 @@ We need two endpoints:
 
 __login redirect endpoint__
 
-```
+```go
 http.HandleFunc("/login", func(w http.ResponseWriter, r *http.Request) {
     state, err := randString(16)
     if err != nil {
@@ -189,7 +189,7 @@ Then, we perform validation and verification on these tokens.
 After that, we extract the `claims` data from the verifiable presentation (VP) token. In this case, the credential is `LinkedIdentifiers`.
 
 
-```
+```go
 http.HandleFunc("/auth/pass3/callback", func(w http.ResponseWriter, r *http.Request) {
     state, err := r.Cookie("state")
     if err != nil {
@@ -237,7 +237,7 @@ http.HandleFunc("/auth/pass3/callback", func(w http.ResponseWriter, r *http.Requ
 
 The `presentation definition` is used to define the credential that we want to request from the authentication server.
 
-```
+```go
 
 pd := &PresentationDefinition{
     ID: "LinkedIdentifiers",
@@ -260,7 +260,7 @@ url := oauthConfig.AuthCodeURL(oauthState, oauth2.SetAuthURLParam("presentation_
 
 Presentation Definition from URI
     
-```
+```go
 pd, _ := PresentationDefinitionFromURI("https://example.com/presentationdefs?ref=idcard_presentation_request")
 
 pdstr, _ := pd.String()
@@ -273,7 +273,7 @@ url := oauthConfig.AuthCodeURL(oauthState, oauth2.SetAuthURLParam("presentation_
 
 The `presentation submission` contains mappings between the requested Verifiable Credentials and where to find them within the returned VP Token
 
-```
+```go
 // after get VP token from callback endpoint
 
 token, err := oauthConfig.Exchange(context.Background(), code)
