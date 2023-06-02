@@ -1,0 +1,14 @@
+FROM node:lts AS build
+WORKDIR /usr/src/app
+COPY ./pass3-identity/package*.json ./
+RUN yarn
+COPY ./pass3-identity/. .
+RUN yarn build
+
+# Deployment step
+
+FROM nginx as deploy
+
+COPY --from=build /usr/src/app/build/. /usr/share/nginx/html/.
+
+RUN ls -al /usr/share/nginx/html
