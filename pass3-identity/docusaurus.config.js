@@ -9,7 +9,10 @@ const config = {
   title: 'PASS3 Identity',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
-
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
   // Set the production url of your site here
   url: 'https://your-docusaurus-test-site.com',
   // Set the /<baseUrl>/ pathname under which your site is served
