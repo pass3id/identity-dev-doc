@@ -22,7 +22,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'pass3id', // Usually your GitHub org/user name.
-  projectName: 'pass3id.github.io', // Usually your repo name.
+  projectName: 'identity-dev-doc', // Usually your repo name.
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
