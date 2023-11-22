@@ -30,12 +30,6 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build website
         run: yarn build
-      - name: Path
-        run: pwd
-      - name: Workspace dir
-        run: echo ${GITHUB_WORKSPACE}
-      - name: Inspect project dir
-        run: ls -al ./build
 
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
