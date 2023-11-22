@@ -33,7 +33,7 @@ jobs:
       - name: Inspect current dir
         run: ls -al .
       - name: Inspect project dir
-        run: ls -al ./pass3-identity
+        run: ls -al ./build
 
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
